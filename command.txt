@@ -1,0 +1,3 @@
+cmake .. -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=Debug -DLIBVLC_INCLUDE_DIR="D:/github/vlc-qt/libvlc-headers/include" -DLIBVLC_LIBRARY="D:/vlc-4.0.0-dev-20220617/vlc-4.0.0-dev/sdk/lib/libvlc.lib" -DLIBVLCCORE_LIBRARY="D:/vlc-4.0.0-dev-20220617/vlc-4.0.0-dev/sdk/lib/libvlccore.lib" -DCMAKE_INSTALL_PREFIX="D:/github/vlc-qt/build/out"
+
+cmake .. -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=Debug -DLIBVLC_INCLUDE_DIR="D:/vlc-4.0.0-dev-20220617/vlc-4.0.0-dev/sdk/lib/include" -DLIBVLC_LIBRARY="D:/vlc-4.0.0-dev-20220617/vlc-4.0.0-dev/sdk/lib/libvlc.lib" -DLIBVLCCORE_LIBRARY="D:/vlc-4.0.0-dev-20220617/vlc-4.0.0-dev/sdk/lib/libvlccore.lib" -DCMAKE_INSTALL_PREFIX="D:/github/vlc-qt/build/out"
