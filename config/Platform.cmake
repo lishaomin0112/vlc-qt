@@ -1,4 +1,4 @@
-#############################################################################
+# ############################################################################
 # VLC-Qt - Qt and libvlc connector library
 # Copyright (C) 2016 Tadej Novak <tadej@tano.si>
 #
@@ -14,11 +14,11 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library. If not, see <http://www.gnu.org/licenses/>.
-#############################################################################
+# ############################################################################
 # Set platform specific settings #
-##################################
+# #################################
 IF(MINGW OR MSVC)
-    INCLUDE(Windows)
+    # INCLUDE(Windows)
 ENDIF()
 
 IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")

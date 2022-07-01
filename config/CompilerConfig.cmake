@@ -1,4 +1,4 @@
-#############################################################################
+# ############################################################################
 # VLC-Qt - Qt and libvlc connector library
 # Copyright (C) 2016 Tadej Novak <tadej@tano.si>
 #
@@ -14,7 +14,7 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library. If not, see <http://www.gnu.org/licenses/>.
-#############################################################################
+# ############################################################################
 # Choose static or dynamic build
 IF(NOT IOS)
     SET(STATIC OFF CACHE BOOL "Build statically")
@@ -22,6 +22,7 @@ IF(NOT IOS)
 ELSE()
     SET(STATIC ON)
 ENDIF()
+
 IF(STATIC)
     SET(STATIC_BUILD 1)
 ELSE()
@@ -42,6 +43,7 @@ ENDIF()
 SET(CMAKE_AUTOMOC ON)
 SET(CMAKE_AUTOUIC ON)
 SET(CMAKE_AUTORCC ON)
+
 # Verbose makefile
 SET(CMAKE_VERBOSE_MAKEFILE ON)
 
@@ -54,6 +56,7 @@ IF(CMAKE_BUILD_TYPE MATCHES Debug)
     ELSE()
         SET(DEBUG_SUFFIX OFF CACHE BOOL "Debug library suffix")
     ENDIF()
+
     IF(DEBUG_SUFFIX)
         SET(LS d) # For VLC-Qt
         SET(CMAKE_DEBUG_POSTFIX ${LS})
@@ -104,5 +107,6 @@ IF(NOT IOS AND ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
         SET(CMAKE_INSTALL_RPATH "@loader_path/${CMAKE_INSTALL_LIBDIR}")
         SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
     ENDIF()
+
     SET(CMAKE_OSX_ARCHITECTURES x86_64)
 ENDIF()

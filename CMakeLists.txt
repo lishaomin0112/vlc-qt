@@ -1,4 +1,4 @@
-#############################################################################
+# ############################################################################
 # VLC-Qt - Qt and libvlc connector library
 # Copyright (C) 2016 Tadej Novak <tadej@tano.si>
 #
@@ -14,7 +14,7 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this library. If not, see <http://www.gnu.org/licenses/>.
-#############################################################################
+# ############################################################################
 
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0.2)
 CMAKE_POLICY(VERSION 3.0.2)
@@ -28,12 +28,21 @@ SET(CMAKE_MODULE_PATH
 INCLUDE(ParseVersion)
 
 PROJECT(VLC-Qt
-        VERSION ${VLCQT_VERSION})
+    VERSION ${VLCQT_VERSION})
+
+if(WIN32)
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /D restrict= ")
+    set(CMAKE_PREFIX_PATH $ENV{QT_HOME})
+endif()
 
 SET(PROJECT_LIBRARY VLCQt)
 SET(PROJECT_AUTHOR "Tadej Novak")
 SET(PROJECT_COPYRIGHT "Copyright (C) 2016 ${PROJECT_AUTHOR}.")
 SET(PROJECT_DESCRIPTION "VLC-Qt - Qt bindings for libVLC")
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 SET(VLCQT_CORE Core)
 SET(VLCQT_WIDGETS Widgets)
@@ -50,17 +59,15 @@ INCLUDE(CompilerConfig)
 INCLUDE(Dependencies)
 INCLUDE(Platform)
 
-
-###################
+# ##################
 # Compile and set #
-###################
+# ##################
 ADD_SUBDIRECTORY(src)
 ADD_SUBDIRECTORY(docs)
 
-
-#########
+# ########
 # Tests #
-#########
+# ########
 IF(QT_VERSION MATCHES 5 AND NOT MOBILE)
     ENABLE_TESTING(true)
     ADD_SUBDIRECTORY(tests)
@@ -76,7 +83,7 @@ IF(QT_VERSION MATCHES 5 AND NOT MOBILE)
     ENDIF()
 ENDIF()
 
-##################################
+# #################################
 # CMake Package files generation #
-##################################
+# #################################
 INCLUDE(Package)
