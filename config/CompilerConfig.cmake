@@ -60,8 +60,8 @@ IF(CMAKE_BUILD_TYPE MATCHES Debug)
     ENDIF()
 ENDIF()
 
-# C++11 support
-SET(CMAKE_CXX_STANDARD 11)
+# C++17 support
+SET(CMAKE_CXX_STANDARD 17)
 
 # Show all warnings
 IF(NOT MSVC)
